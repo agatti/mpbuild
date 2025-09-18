@@ -25,7 +25,7 @@ Build MicroPython firmware with ease!
 **mpbuild** is intended to be executed in the root of a MicroPython repository. Help text (accessed with adding `--help`) is extensive and documents advanced options.
 
 > [!NOTE]
-> Note that there are some _special_ builds. `unix`, `webassembly` and `windows` can all be specified as `BOARD`s but their target isn't a microcontroller. See the [MicroPython documentation](https://github.com/micropython/micropython/) for details.
+> Note that there are some _special_ builds. `qemu`, `unix`, `webassembly` and `windows` can all be specified as `BOARD`s but their target isn't a microcontroller. See the [MicroPython documentation](https://github.com/micropython/micropython/) for details.
 
 > [!WARNING]
 > Currently **mpbuild** is tested on Linux (specifically Ubuntu 24.04 on WSL on Windows 11) but it's intended to work on any platform that supports Docker.

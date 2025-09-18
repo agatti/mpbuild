@@ -262,6 +262,34 @@ class Database:
             self.ports[special_port_name] = port
             self.boards[board.name] = board
 
+        # Add 'qemu' boards, as they need to be handled differently
+        if not self.port_filter or self.port_filter == "qemu":
+            path = self.mpy_root_directory / "ports" / "qemu"
+            board_names = [
+                var.name for var in path.glob("boards/*") if var.is_dir()
+            ]
+            port = Port(
+                name="qemu",
+                directory=path,
+            )
+            for board_name in board_names:
+                board = Board(
+                    name=board_name,
+                    variants=[],
+                    url=f"https://github.com/micropython/micropython/blob/master/ports/qemu/README.md",
+                    mcu="",
+                    product="",
+                    vendor="",
+                    images=[],
+                    deploy=[],
+                    physical_board=False,
+                    port=port,
+                )
+                port.boards[board.name] = board
+                self.boards[board.name] = board
+            self.ports["qemu"] = port
+
+
     @staticmethod
     def assert_mpy_root_direcory(directory: Path) -> None:
         """

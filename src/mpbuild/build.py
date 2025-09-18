@@ -25,6 +25,7 @@ BUILD_CONTAINERS = {
     "psoc6": "ifxmakers/mpy-mtb-ci",
     "esp32": "espressif/idf:v5.4.2",
     "esp8266": "larsks/esp-open-sdk",
+    "qemu": ARM_BUILD_CONTAINER,
     "unix": "gcc:12-bookworm",  # Special, doesn't have boards
 }
 
